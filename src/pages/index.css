@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-midnight-900 text-slate-100 antialiased font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-midnight-900;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-midnight-700 rounded-full hover:bg-electric-500 transition-colors;
+  }
+}
+
+.font-code {
+  font-family: 'Fira Code', monospace;
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-electric-400 via-purple-400 to-pink-500 animate-gradient-x;
+}
+
+.btn-primary {
+  @apply px-8 py-4 bg-gradient-to-r from-electric-500 to-purple-600 text-white font-bold rounded-full transition-all transform hover:scale-105 hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] active:scale-95 flex items-center gap-2 relative overflow-hidden;
+}
+
+.btn-secondary {
+  @apply px-8 py-4 bg-midnight-800/80 backdrop-blur-md text-white font-bold rounded-full border border-midnight-700 hover:border-electric-500/50 transition-all transform hover:scale-105 hover:bg-midnight-700 flex items-center gap-2;
+}
+
+@keyframes color-shift {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1.2) saturate(1.2);
+  }
+  50% {
+    filter: hue-rotate(-40deg) brightness(0.8) saturate(1.5);
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-color-shift {
+  animation: color-shift 4s infinite alternate ease-in-out;
+}
+
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+}
