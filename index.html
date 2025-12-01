@@ -229,6 +229,33 @@
 
         /* Work Section */
         .project-card {
+            /* Project image rectangle */
+.project-image {
+    grid-column: 6 / -1;
+    grid-row: 1 / -1;
+    height: 300px;
+    width: 100%;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: var(--navy-700);
+}
+
+/* Left-side image */
+.project-image.left {
+    grid-column: 1 / 8;
+}
+
+/* Hover effect */
+.project-image:hover {
+    transform: scale(1.02);
+}
+
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             align-items: center;
@@ -258,23 +285,7 @@
             position: relative;
             z-index: 1;
             transition: all 0.3s ease;
-            /* Project image behaviour: center-crop and always fill the rectangle */
-.project-image {
-    grid-column: 6 / -1;
-    grid-row: 1 / -1;
-    height: 300px;               /* desktop rectangle height */
-    width: 100%;
-    border-radius: 4px;
-    position: relative;
-    z-index: 1;
-    transition: all 0.3s ease;
-
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;      /* <-- fills rectangle, crops if needed */
-    background-color: var(--navy-700);
-    overflow: hidden;
-}
+           
 
 /* Left image placement */
 .project-image.left {
@@ -289,24 +300,33 @@
 
 /* Mobile: show images (smaller height) */
 @media (max-width: 768px) {
-    .project-image, .project-image.left {
-        display: block;         /* allow images to show on mobile */
-        height: 220px;          /* smaller rectangle for phones */
+    .project-image {
+        display: block;
+        height: 220px;
         margin-bottom: 16px;
     }
 
-    /* ensure the content blocks stack nicely with image on top */
+    .project-image.left {
+        display: block;
+        height: 220px;
+        margin-bottom: 16px;
+    }
+
     .project-card {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
         align-items: start;
     }
-    .project-content, .project-content.right {
+
+    .project-content,
+    .project-content.right {
         grid-column: 1 / -1;
         padding: 20px;
         text-align: left;
         background-color: var(--navy-800);
         border-radius: 4px;
     }
+}
+
 }
 
         }
