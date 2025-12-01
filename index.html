@@ -229,33 +229,7 @@
 
         /* Work Section */
         .project-card {
-            /* Project image rectangle */
-.project-image {
-    grid-column: 6 / -1;
-    grid-row: 1 / -1;
-    height: 300px;
-    width: 100%;
-    border-radius: 4px;
-    position: relative;
-    z-index: 1;
-    transition: all 0.3s ease;
-
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-color: var(--navy-700);
-}
-
-/* Left-side image */
-.project-image.left {
-    grid-column: 1 / 8;
-}
-
-/* Hover effect */
-.project-image:hover {
-    transform: scale(1.02);
-}
-
+            
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             align-items: center;
@@ -276,15 +250,16 @@
             padding-left: 40px;
         }
 
-        .project-image {
-            grid-column: 6 / -1;
-            grid-row: 1 / -1;
-            background-color: var(--navy-700);
-            height: 300px;
-            border-radius: 4px;
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
+.project-image {
+    grid-column: 6 / -1;
+    grid-row: 1 / -1;
+    height: 300px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
            
 
 /* Left image placement */
@@ -300,33 +275,24 @@
 
 /* Mobile: show images (smaller height) */
 @media (max-width: 768px) {
-    .project-image {
-        display: block;
-        height: 220px;
+    .project-image, .project-image.left {
+        display: block;         /* allow images to show on mobile */
+        height: 220px;          /* smaller rectangle for phones */
         margin-bottom: 16px;
     }
 
-    .project-image.left {
-        display: block;
-        height: 220px;
-        margin-bottom: 16px;
-    }
-
+    /* ensure the content blocks stack nicely with image on top */
     .project-card {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; 
         align-items: start;
     }
-
-    .project-content,
-    .project-content.right {
+    .project-content, .project-content.right {
         grid-column: 1 / -1;
         padding: 20px;
         text-align: left;
         background-color: var(--navy-800);
         border-radius: 4px;
     }
-}
-
 }
 
         }
@@ -497,13 +463,21 @@
       </div>
 
       <!-- background image fills the right rectangle -->
-      <div class="project-image" style="background-image: url('en-ann-lrn.jpg');" aria-hidden="true"></div>
-    </div>
+     <div class="project-image" style="
+    background-image: url('assets/en-ann-lrn.jpg');
+    background-size: cover;
+    background-position: center;
+"></div>
+
 
     <!-- Project 2 -->
     <div class="project-card fade-in">
       <!-- left image -->
-      <div class="project-image left" style="background-image: url('offer-trip-25-ww.png');" aria-hidden="true"></div>
+     <div class="project-image left" style="
+    background-image: url('assets/offer-trip-25-ww.png');
+    background-size: cover;
+    background-position: center;
+"></div>
 
       <div class="project-content right">
         <p class="project-overline">Featured Project</p>
@@ -522,7 +496,11 @@
 
     <!-- Project 3 -->
     <div class="project-card fade-in">
-      <div class="project-image left" style="background-image: url('gym-offer.jpg');" aria-hidden="true"></div>
+     <div class="project-image left" style="
+    background-image: url('assets/gym-offer.jpg');
+    background-size: cover;
+    background-position: center;
+"></div>
 
       <div class="project-content right">
         <p class="project-overline">Featured Project</p>
