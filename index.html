@@ -260,6 +260,35 @@
     background-repeat: no-repeat;
     box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
 }
+
+.project-image.left {
+    grid-column: 1 / 8;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image,
+    .project-image.left {
+        display: block;
+        width: 100%;
+        height: 220px;
+        margin-bottom: 16px;
+    }
+
+    .project-content,
+    .project-content.right {
+        grid-column: 1 / -1;
+        text-align: left;
+        padding: 20px;
+        background-color: var(--navy-800);
+        border-radius: 4px;
+    }
+}
+
            
 
 /* Left image placement */
@@ -434,9 +463,7 @@
             </div>
         </section>
 
-        <!-- Work Section -->
-        <section id="work">
-            <!-- Work Section -->
+<!-- Work Section -->
 <section id="work">
   <div class="fade-in">
     <div class="section-header">
@@ -462,22 +489,16 @@
         </ul>
       </div>
 
-      <!-- background image fills the right rectangle -->
-     <div class="project-image" style="
-    background-image: url('assets/en-ann-lrn.jpg');
-    background-size: cover;
-    background-position: center;
-"></div>
-
+      <div class="project-image" style="
+        background-image: url('assets/en-ann-lrn.jpg');
+      "></div>
+    </div>
 
     <!-- Project 2 -->
     <div class="project-card fade-in">
-      <!-- left image -->
-     <div class="project-image left" style="
-    background-image: url('assets/offer-trip-25-ww.png');
-    background-size: cover;
-    background-position: center;
-"></div>
+      <div class="project-image left" style="
+        background-image: url('assets/offer-trip-25-ww.png');
+      "></div>
 
       <div class="project-content right">
         <p class="project-overline">Featured Project</p>
@@ -496,11 +517,9 @@
 
     <!-- Project 3 -->
     <div class="project-card fade-in">
-     <div class="project-image left" style="
-    background-image: url('assets/gym-offer.jpg');
-    background-size: cover;
-    background-position: center;
-"></div>
+      <div class="project-image left" style="
+        background-image: url('assets/gym-offer.jpg');
+      "></div>
 
       <div class="project-content right">
         <p class="project-overline">Featured Project</p>
@@ -520,7 +539,6 @@
   </div>
 </section>
 
-        </section>
 
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
