@@ -4,382 +4,341 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>٢٦ Hub</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-:root{
---bg:#020617;
---card:#0b1220;
---glass:rgba(2,6,23,.9);
---text:#e5e7eb;
---muted:#94a3b8;
---neon:#64ffda;
---neon-soft:rgba(100,255,218,.12);
---border:#13203a;
---sans:'Inter',sans-serif;
---mono:'Fira Code',monospace;
-}
+    :root {
+        --bg-dark: #020617;
+        --bg-dark-2: #0b1220;
+        --text-light: #e5e7eb;
+        --text-muted: #94a3b8;
+        --neon: #64ffda;
+        --accent: #3daee9;
+        --font-sans: 'Inter', sans-serif;
+        --font-mono: 'Fira Code', monospace;
+    }
 
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-background:var(--bg);
-color:var(--muted);
-font-family:var(--sans);
-line-height:1.6;
-overflow-x:hidden;
-}
-a{text-decoration:none;color:inherit}
-.container{max-width:1100px;margin:auto;padding:0 20px}
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+        background: var(--bg-dark);
+        color: var(--text-muted);
+        font-family: var(--font-sans);
+        line-height:1.6;
+        overflow-x:hidden;
+    }
+    a {text-decoration:none; color:inherit; transition: all 0.3s;}
+    ul {list-style:none;}
 
-/* NAV */
-nav{
-position:fixed;
-top:0;width:100%;height:80px;
-background:var(--glass);
-backdrop-filter:blur(10px);
-border-bottom:1px solid var(--border);
-z-index:1000;
-transition:transform .3s ease;
-}
-nav.hide{transform:translateY(-100%)}
-.nav-content{
-height:100%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-.logo{color:var(--neon);font-weight:700;font-size:20px}
-.nav-links{
-display:flex;
-gap:30px;
-font-family:var(--mono);
-font-size:13px;
-}
-.nav-links a:hover{color:var(--neon)}
-.menu-toggle{
-display:none;
-flex-direction:column;
-gap:6px;
-cursor:pointer;
-}
-.menu-toggle span{
-width:24px;height:2px;
-background:var(--text);
-}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px;}
 
-/* SECTIONS */
-section{padding:120px 0}
-.hero-intro{color:var(--neon);font-family:var(--mono);margin-bottom:16px}
-.hero-title{font-size:clamp(42px,8vw,76px);color:var(--text)}
-.hero-subtitle{font-size:clamp(32px,7vw,60px);margin-bottom:30px}
-.hero-desc{max-width:520px;margin-bottom:50px}
+    .text-neon {color: var(--neon);}
+    .text-light {color: var(--text-light);}
+    .font-mono {font-family: var(--font-mono);}
 
-.btn{
-display:inline-block;
-padding:14px 30px;
-border:1px solid var(--neon);
-color:var(--neon);
-font-family:var(--mono);
-font-size:14px;
-border-radius:4px;
-transition:.25s;
-}
-.btn:hover{background:var(--neon-soft)}
+    /* Buttons */
+    .btn{
+        display:inline-block;
+        padding:12px 28px;
+        border:1px solid var(--neon);
+        color: var(--neon);
+        border-radius:50px;
+        font-family: var(--font-mono);
+        font-size:14px;
+        cursor:pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow:hidden;
+    }
+    .btn:hover{
+        background: rgba(100,255,218,0.15);
+        transform: scale(1.05);
+    }
 
-.section-header{
-display:flex;
-align-items:center;
-margin-bottom:50px;
-}
-.section-num{color:var(--neon);font-family:var(--mono);margin-right:10px}
-.section-title{color:var(--text);font-size:28px;margin-right:20px}
-.section-line{flex:1;height:1px;background:var(--border);max-width:280px}
+    /* Navbar */
+    nav{
+        position:fixed;
+        top:0;
+        width:100%;
+        height:70px;
+        background-color: rgba(2,6,23,0.95);
+        backdrop-filter:blur(10px);
+        z-index:100;
+        display:flex;
+        align-items:center;
+        border-bottom:1px solid #112240;
+        transition: top 0.3s ease;
+    }
+    .nav-content{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        width:100%;
+    }
+    .logo{
+        color: var(--neon);
+        font-weight:700;
+        font-size:20px;
+        letter-spacing:1px;
+    }
+    .nav-links{
+        display:flex;
+        gap:28px;
+    }
+    .nav-link{font-size:13px; font-family:var(--font-mono);}
+    .nav-link span{color: var(--neon); margin-right:4px;}
+    .nav-link:hover{color: var(--neon);}
 
-/* ABOUT */
-.about-grid{
-display:grid;
-grid-template-columns:3fr 2fr;
-gap:50px;
-}
-.skills{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-margin-top:20px;
-font-family:var(--mono);
-font-size:13px;
-}
-.skills li::before{content:"▹ ";color:var(--neon)}
-.about-img{
-height:300px;
-border:2px solid var(--neon);
-border-radius:6px;
-background:var(--card);
-}
+    /* Hamburger */
+    .hamburger{
+        display:none;
+        flex-direction: column;
+        gap:4px;
+        cursor:pointer;
+    }
+    .hamburger div{
+        width:25px;
+        height:3px;
+        background: var(--neon);
+        transition: all 0.3s ease;
+    }
 
-/* WORK */
-.work-tabs{
-display:flex;
-gap:14px;
-margin-bottom:50px;
-}
-.work-tab{
-padding:10px 22px;
-border:1px solid var(--neon);
-background:transparent;
-color:var(--neon);
-font-family:var(--mono);
-font-size:13px;
-cursor:pointer;
-}
-.work-tab.active,
-.work-tab:hover{background:var(--neon-soft)}
+    /* Sections */
+    section{min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:100px 0;}
+    .hero-intro{font-family:var(--font-mono); color:var(--neon); margin-bottom:20px; font-size:16px;}
+    .hero-title{font-size:clamp(40px,8vw,80px); font-weight:800; color:var(--text-light); line-height:1.1; margin-bottom:10px;}
+    .hero-subtitle{font-size:clamp(40px,8vw,80px); font-weight:700; color:var(--text-muted); line-height:1.1; margin-bottom:30px;}
+    .hero-desc{max-width:540px; font-size:18px; margin-bottom:50px;}
 
-.project{
-margin-bottom:80px;
-}
-.project h3{
-color:var(--text);
-font-size:24px;
-margin-bottom:10px;
-}
-.project p{
-max-width:700px;
-margin-bottom:20px;
-}
-.project img{
-width:100%;
-border-radius:8px;
-margin-bottom:18px;
-box-shadow:0 8px 24px rgba(0,0,0,.45);
-}
-.tools{
-display:flex;
-gap:16px;
-font-family:var(--mono);
-font-size:12px;
-margin-bottom:16px;
-}
+    .section-header{display:flex; align-items:center; margin-bottom:40px;}
+    .section-num{font-family:var(--font-mono); color:var(--neon); font-size:20px; margin-right:10px;}
+    .section-title{font-size:32px; color: var(--text-light); font-weight:700; margin-right:20px;}
+    .section-line{height:1px; background-color:#112240; flex-grow:1; max-width:300px;}
 
-/* CONTACT */
-.contact{
-  text-align:center;
-  max-width:600px;
-  margin:0 auto;
-}
+    /* About */
+    .about-grid{display:grid; grid-template-columns:3fr 2fr; gap:50px;}
+    .skills-list{display:grid; grid-template-columns:repeat(2,minmax(140px,200px)); gap:10px; margin-top:20px; font-family:var(--font-mono); font-size:13px;}
+    .skills-list li::before{content:'▹'; color:var(--neon); margin-right:10px;}
+    .about-img-wrapper{position:relative; width:100%; max-width:300px;}
+    .about-img{width:100%; height:300px; border-radius:4px; position:relative; z-index:1; border:2px solid var(--neon); background-color: var(--bg-dark-2); transition: all 0.3s ease;}
+    .about-img:hover{transform: translate(-5px,-5px); box-shadow:10px 10px 0 0 #112240;}
 
-.contact h3{
-  color:var(--text);
-  font-size:46px;
-  margin:20px 0;
-}
+    /* Work */
+    .work-tab{padding:10px 22px; border:1px solid var(--neon); border-radius:50px; background:transparent; cursor:pointer; color: var(--neon); transition: all 0.3s;}
+    .work-tab.active,.work-tab:hover{background: rgba(100,255,218,0.15);}
+    .project-card{display:grid; grid-template-columns:repeat(12,1fr); align-items:center; margin-bottom:80px; transition:all 0.3s;}
+    .project-content{grid-column:1/8; grid-row:1/-1; z-index:2; padding-right:40px;}
+    .project-content.right{grid-column:6/-1; text-align:right; padding-left:40px; padding-right:0;}
+    .project-image{grid-column:6/-1; grid-row:1/-1; height:300px; border-radius:4px; background-size:cover; background-position:center; box-shadow:0 10px 30px -15px rgba(2,12,27,0.7);}
+    .project-image.left{grid-column:1/8;}
+    .project-overline{color: var(--neon); font-family: var(--font-mono); font-size:13px; margin-bottom:10px;}
+    .project-title{color: var(--text-light); font-size:28px; margin-bottom:20px;}
+    .project-desc{background-color: var(--bg-dark-2); padding:25px; border-radius:4px; font-size:15px; margin-bottom:20px; box-shadow:0 10px 30px -15px rgba(2,12,27,0.7);}
+    .project-tech{display:flex; gap:20px; font-family:var(--font-mono); font-size:13px; margin-bottom:20px;}
+    .project-content.right .project-tech{justify-content:flex-end;}
+    .project-card:hover{transform:translateY(-6px);}
+    .project-image:hover{transform: scale(1.02);}
+    .btn-live{margin-top:10px; display:inline-block;}
 
-.contact p{
-  margin-bottom:40px;
-}
+    /* Contact */
+    .contact{text-align:center; max-width:600px; margin:0 auto;}
+    .contact h3{color:var(--text-light); font-size:46px; margin:20px 0;}
+    .contact p{margin-bottom:40px;}
 
-.contact-header{
-  justify-content:center;
-}
+    /* Footer */
+    footer{color:var(--text-muted); text-align:center; padding:40px 0; font-size:14px; border-top:1px solid #112240;}
 
-.contact-header .section-line{
-  max-width:140px;   /* softer & shorter */
-}
+    /* Fade-in animations */
+    .fade-in{opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease;}
+    .fade-in.visible{opacity:1; transform:translateY(0);}
 
-
-
-/* FOOTER */
-footer{
-border-top:1px solid var(--border);
-text-align:center;
-padding:40px 0 12px;
-font-size:13px;
-}
-.github{
-text-align:center;
-padding-bottom:30px;
-font-family:var(--mono);
-font-size:13px;
-}
-.github a{color:var(--neon)}
-
-/* ANIM */
-.fade{opacity:0;transform:translateY(20px);transition:.6s ease}
-.fade.show{opacity:1;transform:none}
-
-/* MOBILE */
-@media(max-width:768px){
-.menu-toggle{display:flex}
-.nav-links{
-position:fixed;
-inset:80px 0 0 0;
-background:var(--bg);
-flex-direction:column;
-justify-content:center;
-align-items:center;
-display:none;
-}
-.nav-links.active{display:flex}
-.about-grid{grid-template-columns:1fr}
-}
+    /* Mobile */
+    @media(max-width:768px){
+        .nav-links{display:none; position:absolute; top:70px; right:0; background:var(--bg-dark-2); width:200px; flex-direction:column; padding:20px; gap:20px; display:flex; transform:translateX(100%); transition: transform 0.3s;}
+        .nav-links.show{transform:translateX(0);}
+        .hamburger{display:flex;}
+        .about-grid{grid-template-columns:1fr;}
+        .project-card{grid-template-columns:1fr;}
+        .project-image,.project-image.left{width:100%; height:220px; margin-bottom:16px;}
+        .project-content,.project-content.right{grid-column:1/-1; text-align:left; padding:20px; background-color: var(--bg-dark-2);}
+        .project-content.right .project-tech{justify-content:flex-start;}
+        .hero-title,.hero-subtitle{font-size:40px;}
+    }
 </style>
 </head>
-
 <body>
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">٢٦</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link"><span>01.</span>Home</a></li>
+                <li><a href="#about" class="nav-link"><span>02.</span>About</a></li>
+                <li><a href="#work" class="nav-link"><span>03.</span>Work</a></li>
+                <li><a href="#contact" class="nav-link"><span>04.</span>Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <div></div><div></div><div></div>
+            </div>
+        </div>
+    </nav>
 
-<nav id="nav">
-<div class="container nav-content">
-<div class="logo">٢٦</div>
-<ul class="nav-links" id="links">
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#work">Work</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<div class="menu-toggle" id="toggle"><span></span><span></span><span></span></div>
-</div>
-</nav>
+    <div class="container">
+        <!-- Home -->
+        <section id="home">
+            <div class="fade-in">
+                <p class="hero-intro">Hey, you can call me Twenty Six</p>
+                <h1 class="hero-title">Creative Developer.</h1>
+                <h2 class="hero-subtitle">I build things for the web.</h2>
+                <p class="hero-desc">Self-taught developer passionate about UI/UX, animations, and clean design. I build things for the web.</p>
+                <a href="#work" class="btn">Check out my work</a>
+            </div>
+        </section>
 
-<div class="container">
+        <!-- About -->
+        <section id="about">
+            <div class="fade-in">
+                <div class="section-header">
+                    <span class="section-num">02.</span>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-grid">
+                    <div>
+                        <p style="margin-bottom: 15px;">Hi! I'm Ryan, a self-taught web and UI/UX designer passionate about creating visually appealing and functional digital experiences. I enjoy building websites and crafting designs that are both modern and user-friendly.</p>
+                        <p>Here are a few technologies I've been working with recently:</p>
+                        <ul class="skills-list">
+                            <li>JavaScript (ES6+)</li>
+                            <li>HTML & CSS</li>
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>WordPress</li>
+                            <li>Figma / UI Design</li>
+                            <li>Adobe Photoshop & Illustrator</li>
+                            <li>Animation & Interaction Design</li>
+                        </ul>
+                    </div>
+                    <div class="about-img-wrapper">
+                        <div class="about-img"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="home">
-<div class="fade">
-<p class="hero-intro">Hey, you can call me Twenty Six</p>
-<h1 class="hero-title">Creative Developer.</h1>
-<h2 class="hero-subtitle">I build things for the web.</h2>
-<p class="hero-desc">Self-taught developer focused on clean UI, code and digital products.</p>
-<a href="#work" class="btn">Check my work</a>
-</div>
-</section>
+        <!-- Work -->
+        <section id="work">
+            <div class="fade-in">
+                <div class="section-header">
+                    <span class="section-num">03.</span>
+                    <h2 class="section-title">My Work</h2>
+                    <div class="section-line"></div>
+                </div>
 
-<section id="about">
-<div class="fade">
-<div class="section-header">
-<span class="section-num">02.</span>
-<h2 class="section-title">About Me</h2>
-<div class="section-line"></div>
-</div>
-<div class="about-grid">
-<div>
-<p>Hi! I'm Ryan, a self-taught web & UI designer who loves building modern, aesthetic experiences.</p>
-<ul class="skills">
-<li>JavaScript</li><li>HTML & CSS</li>
-<li>React</li><li>Node.js</li>
-<li>WordPress</li><li>Figma</li>
-</ul>
-</div>
-<div class="about-img"></div>
-</div>
-</div>
-</section>
+                <!-- DESIGN PROJECTS -->
+                <h3 style="color: var(--text-light); font-size:26px; margin-bottom:40px;">🎨 Design Projects</h3>
 
-<section id="work">
-<div class="fade">
-<div class="section-header">
-<span class="section-num">03.</span>
-<h2 class="section-title">My Work</h2>
-<div class="section-line"></div>
-</div>
+                <!-- Design Project 1 -->
+                <div class="project-card fade-in">
+                    <div class="project-content">
+                        <p class="project-overline">Featured Design</p>
+                        <h3 class="project-title">Campus English Hub Poster</h3>
+                        <div class="project-desc">
+                            Visually engaging poster for a university English learning program. Clean typography and layout focused on clarity and attraction.
+                        </div>
+                        <div class="project-image" style="background-image: url('assets/en-ann-lrn.jpg'); height:220px; margin-bottom:10px;"></div>
+                        <ul class="project-tech">
+                            <li>Figma</li>
+                            <li>Illustrator</li>
+                            <li>Photoshop</li>
+                        </ul>
+                    </div>
+                </div>
 
-<div class="work-tabs">
-<button class="work-tab active" onclick="showWork('design')">Design</button>
-<button class="work-tab" onclick="showWork('web')">Web</button>
-</div>
+                <!-- Web Projects -->
+                <h3 style="color: var(--text-light); font-size:26px; margin-bottom:40px;">💻 Web Development Projects</h3>
 
-<div id="design" class="work-set">
-<div class="project">
-<h3>Campus English Poster</h3>
-<p>University poster focused on clean typography and clarity.</p>
-<img src="assets/en-ann-lrn.jpg">
-<div class="tools"><span>Figma</span><span>Photoshop</span></div>
-</div>
+                <!-- Web Project 1 -->
+                <div class="project-card fade-in">
+                    <div class="project-content">
+                        <p class="project-overline">Web Project</p>
+                        <h3 class="project-title">Online Agency</h3>
+                        <div class="project-desc">
+                            A modern digital interface for an agency specializing in UI/UX design and web development services.
+                        </div>
+                        <div class="project-image" style="background-image: url('assets/Agency-preview.png'); height:220px; margin-bottom:10px;"></div>
+                        <ul class="project-tech">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <a href="https://26ryxn.github.io/Lume-Agency/" target="_blank" class="btn btn-live">View Live →</a>
+                    </div>
+                </div>
 
-<div class="project">
-<h3>Global Adventure Flyer</h3>
-<p>Playful flyer for a kids worldwide exploration trip.</p>
-<img src="assets/offer-trip-25-ww.png">
-<div class="tools"><span>Illustrator</span><span>Canva</span></div>
-</div>
+            </div>
+        </section>
 
-<div class="project">
-<h3>Gym Promotion Banner</h3>
-<p>Bold visual banner designed to motivate and attract.</p>
-<img src="assets/gym-offer.jpg">
-<div class="tools"><span>Photoshop</span><span>Branding</span></div>
-</div>
-</div>
-
-<div id="web" class="work-set" style="display:none">
-<div class="project">
-<h3>Online Agency</h3>
-<p>Modern agency landing page focused on UI/UX and performance.</p>
-<img src="assets/Agency-preview.png">
-<div class="tools"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-<a href="https://26ryxn.github.io/Lume-Agency/" target="_blank" class="btn">View Live →</a>
-</div>
-
-<div class="project">
-<h3>Nexus Fashion</h3>
-<p>Fashion landing page showcasing modern women styles.</p>
-<img src="assets/fashion-girls-preview.png">
-<div class="tools"><span>HTML</span><span>CSS</span></div>
-<a href="https://26ryxn.github.io/Nexus-Fashion/" target="_blank" class="btn">View Live →</a>
-</div>
-</div>
-
-</div>
-</section>
-
-<section id="contact">
-  <div class="fade">
-<div class="section-header">
-  <span class="section-num">04.</span>
-  <h2 class="section-title">What's Next?</h2>
-  <div class="section-line"></div>
-</div>
-
-    <div class="contact">
-      <h3>Get In Touch</h3>
-      <p>Let’s build something clean and meaningful.</p>
-      <a href="mailto:26ryxn@gmail.com" class="btn">Say Hello</a>
+        <!-- Contact -->
+        <section id="contact">
+            <div class="fade-in">
+                <div class="section-header">
+                    <span class="section-num">04.</span>
+                    <h2 class="section-title">What's Next?</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="contact">
+                    <h3>Get In Touch</h3>
+                    <p>Let’s build something clean and meaningful.</p>
+                    <a href="mailto:26ryxn@gmail.com" class="btn">Say Hello</a>
+                </div>
+            </div>
+        </section>
     </div>
-  </div>
-</section>
 
-
-</div>
-
-<footer>© 2026 Twenty Six. All rights reserved.</footer>
-<div class="github"><a href="https://github.com/26ryxn" target="_blank">github.com/26ryxn</a></div>
+    <footer>
+        2026 © All Rights Reserved
+    </footer>
+    <div style="text-align:center; margin:20px 0;">
+        <a href="https://github.com/26ryxn" target="_blank" style="color:var(--neon); font-family:var(--font-mono);">GitHub: 26ryxn</a>
+    </div>
 
 <script>
-/* menu */
-toggle.onclick=()=>links.classList.toggle("active");
-links.querySelectorAll("a").forEach(a=>a.onclick=()=>links.classList.remove("active"));
+    // Fade-in observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
-/* navbar scroll */
-let last=0;
-window.addEventListener("scroll",()=>{
-const y=window.scrollY;
-y>last&&y>100?nav.classList.add("hide"):nav.classList.remove("hide");
-last=y;
-});
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+        anchor.addEventListener('click', function(e){
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+            // Close mobile menu if open
+            document.querySelector('.nav-links').classList.remove('show');
+        });
+    });
 
-/* fade */
-const io=new IntersectionObserver(e=>{
-e.forEach(i=>{if(i.isIntersecting){i.target.classList.add("show");io.unobserve(i.target)}})
-},{threshold:.1});
-document.querySelectorAll(".fade").forEach(el=>io.observe(el));
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', ()=>{
+        navLinks.classList.toggle('show');
+    });
 
-/* work filter */
-function showWork(id){
-document.querySelectorAll(".work-set").forEach(s=>s.style.display="none");
-document.getElementById(id).style.display="block";
-document.querySelectorAll(".work-tab").forEach(b=>b.classList.remove("active"));
-event.target.classList.add("active");
-}
+    // Hide navbar on scroll down
+    let prevScroll = window.pageYOffset;
+    window.onscroll = function(){
+        let currentScroll = window.pageYOffset;
+        const nav = document.querySelector('nav');
+        if(prevScroll < currentScroll && currentScroll > 100){nav.style.top='-80px';}
+        else{nav.style.top='0';}
+        prevScroll=currentScroll;
+    }
 </script>
-
 </body>
 </html>
